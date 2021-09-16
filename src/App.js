@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Header from './components/shared/Header/Header';
+import Footer from './components/shared/Footer/Footer';
+import { Switch, Route } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import TarefaAdd from './pages/TarefaAdd/TarefaAdd';
+import TarefaView from './pages/TarefaView/TarefaView';
+import TarefaEdit from './pages/TarefaEdit/TarefaEdit';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+        <Switch>
+          <Route path="/" exact={true} component={Home}/>
+          <Route path="/add" component={TarefaAdd}/>
+          <Route path="/view/:id" component={TarefaView}/>
+          <Route path="/edit/:id" component={TarefaEdit}/>
+        </Switch>
+      <Footer/>
     </div>
   );
 }
 
 export default App;
+
+/// Também não consegui fazer o front rodar, consegui fazer apenas até aqui ! 
+/// Por isso só estou mandando o link do git hub !
